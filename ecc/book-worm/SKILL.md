@@ -34,9 +34,6 @@ Extract → Configure → Dispatch → Assemble
 Core principle: **Do not reproduce long passages from the source.** Write original
 explanatory articles based on each chapter's ideas.
 
-> **派發前建議先跑 `preflight`**：驗證書名／副標題 metadata、確認 UTF-8 編碼、以 EPUB spine 順序驗證章節，並初始化 `_pipeline_progress.json`。這可避免章節錯亂與編碼崩潰導致全跑重來。
-> **Resume 規則**：若 `_pipeline_progress.json` 存在，Phase 3 開頭先讀該檔，只派發 `status: "pending"` 的章節，已 `done` 的跳過。每篇完成後更新對應章節狀態。
-
 ## When to Use
 
 - User provides a book file and asks for chapter-based articles
@@ -127,12 +124,6 @@ If the user says "go" without changes, use defaults silently.
 
 ## Phase 3: Dispatch
 
-### Step 0: Resume check (if checkpoint exists)
-
-If `_pipeline_progress.json` exists in `output_dir`, read it and filter to only
-chapters with `status: "pending"`. Skip any already `"done"`. This lets a
-quota-interrupted run resume without regenerating finished articles.
-
 ### Batch logic
 
 Given N chapters and `chapters_per_agent` (default 3):
@@ -146,11 +137,6 @@ batch_i = chapters[(i*3) : ((i+1)*3)]
 
 Use the `Task` tool to launch all agents in a single message (one `Task` call per
 batch). Each agent writes files directly — no need to pass content back.
-
-**Model fallback rule (important):** If a subagent's primary model returns an
-"unavailable" error, automatically fall back to the default model and continue.
-Annotate "degraded: <model> → default" in the agent's return note. Do NOT halt the
-entire run or wait for manual intervention.
 
 ### Subagent prompt template
 

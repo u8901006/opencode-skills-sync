@@ -35,9 +35,6 @@ metadata:
 
 **核心原則**：不重現書中長段落；根據各章觀念撰寫原創衛教文章，再對每篇執行 SEO / 引用查證 / Sugarman / humanizer 全流程優化，直到品質閘門全綠才算完成。
 
-> **派發前強制 preflight**：開跑前先執行 `preflight` skill 驗證 metadata / 編碼 / 章節順序，並初始化 `_pipeline_progress.json`。本 skill 的 Phase 3 開頭會讀取該檔以實現 resume。
-> **Resume 規則**：配額中斷、模型錯誤或其他因素中斷後重跑時，先讀 `_pipeline_progress.json`，只處理 `status: "pending"` 的章節，已完成（`done`）的不重來。
-
 ---
 
 ## 第一部分：Extract（書籍萃取）
@@ -87,17 +84,7 @@ python "C:/Users/u8901/.config/opencode/skills/book-worm/scripts/extract.py" "<b
 
 ## 第三部分：Dispatch（生成文章）
 
-### 步驟 0：Resume 檢查（先讀檢查點）
-
-開始派發前，先讀 `{output_dir}/_pipeline_progress.json`（若不存在，回頭跑 preflight）：
-
-1. 讀出 `chapters` 陣列與各章 `status`。
-2. 過濾出 `status: "pending"` 的章節 —— **只派發這些**，`done` 的直接跳過。
-3. 若所有章節皆 `done`，直接跳到第四部分（Auto-Optimize）檢查尚未優化的文章。
-
-> 這確保配額中斷後重跑不會把已完成的文章重生成。
-
-### 步驟 1：分批邏輯
+### 分批邏輯
 
 ```
 num_agents = ceil(N / chapters_per_agent)
@@ -107,8 +94,6 @@ batch_i = chapters[(i*3) : ((i+1)*3)]
 ### 並行派送
 
 用 `Task` 工具在**同一訊息**內啟動所有代理（一個 Task call 一個批次）。每個代理直接寫檔，不需回傳內容。
-
-**模型降級規則（重要）**：若子代理指定的主要模型回傳 unavailable 錯誤，自動改用預設模型繼續執行，並在回傳結果中標注「降級：X → 預設模型」，不要中斷整個 run 等待人工介入。
 
 ### 子代理提示詞範本
 
@@ -164,8 +149,6 @@ batch_i = chapters[(i*3) : ((i+1)*3)]
 Get-ChildItem "{output_dir}" -Filter "*.md" | Select-Object Name
 ```
 
-**更新檢查點**：對照 `_pipeline_progress.json`，把已生成文章的對應章節標為 `"drafted"` 並填入 `output_file`；尚未生成的仍為 `"pending"`。優化階段只處理 `drafted` 的文章。
-
 ### 步驟 2：對每篇文章跑完整 optimize-article 七階段
 
 **若 `optimize_parallel=true`**：用 Task 並行啟動，每篇一個子代理：
@@ -207,15 +190,11 @@ optimize-article 子代理提示詞：
 
 任何閘門失敗 → 自動回到對應階段修正 → 重跑閘門，不要要求使用者重新下指令。
 
-**通過後更新檢查點**：該篇 G1–G9 全綠後，將 `_pipeline_progress.json` 中對應章節的 `status` 改為 `"done"`。這樣即使後續篇章在優化途中被配額中斷，重跑時已完成的篇章不會重複處理。
-
 ---
 
 ## 第五部分：Assemble（組裝總覽）
 
 ### 步驟 1：驗證輸出
-
-**先檢查 `_pipeline_progress.json`**：確認所有章節 `status` 皆為 `"done"`。若有 `"pending"` 或 `"drafted"` 殘留，代表 pipeline 未跑完（可能被中斷）——先補完再組裝，不要帶著缺口組 index。
 
 對每篇 `-v2.md` 確認：
 - [ ] 檔案存在

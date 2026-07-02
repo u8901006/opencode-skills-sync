@@ -117,6 +117,8 @@ metadata:
 
 若使用者指向一個目錄或多篇文章（>5 篇）：用 `Skill: superpowers:dispatching-parallel-agents` 或 Task 子代理，每篇一個子代理獨立跑完本流程（批次 5–10 篇），最後彙整成單一 dashboard：每篇列出 SEO 改善、引用修正、未能自動完成的項目。子代理**直接 Read／Edit 檔案**，不要把內容回傳主代理再存。
 
+**模型降級規則（重要）**：若子代理指定的主要模型回傳 unavailable 錯誤（例如某 creative-writing 模型暫時不可用），自動改用預設模型繼續執行，並在 dashboard 標注「降級：X → 預設模型」。不要因為單一模型不可用就中斷整批優化 run。
+
 ## 進階模式：自主內容流水線（Autonomous Pipeline）
 
 適用於大量生產場景（每週批次、書籍轉文章後優化）：
