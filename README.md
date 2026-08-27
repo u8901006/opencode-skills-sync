@@ -21,6 +21,7 @@ Backup and sync of custom opencode skills (`~/.config/opencode/skills/`).
 | gsap-scrolltrigger | GSAP ScrollTrigger skill |
 | gsap-timeline | GSAP timeline and sequencing |
 | gsap-utils | GSAP utility functions |
+| markdown-blogger-html | Convert Markdown/Word/.docx articles into Google Blogger HTML (wrapper, read-more, tables, references, JSON-LD, system-font CSS) |
 
 ## Sync on a new computer
 
