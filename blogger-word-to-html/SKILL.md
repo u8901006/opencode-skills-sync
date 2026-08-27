@@ -14,7 +14,7 @@ allowed-tools:
   - Grep
 metadata:
   trigger: 將 Word .docx 文章一次轉成可直接貼入 Blogger HTML 檢視的單一 HTML 字串
-  output: 單一 HTML 檔（含 Google Fonts、<!--more-->、根容器、預約 CTA、FAQ、JSON-LD、完整 CSS）
+  output: 單一 HTML 檔（<!--more-->、根容器、預約 CTA、FAQ、JSON-LD、完整 CSS；不含網頁字型）
   fixed_cta: https://lin.ee/mUIBMWa
   root_id: app-2025-trd-paradigm-failure
 ---
@@ -94,13 +94,20 @@ metadata:
 
 ## 三、頂層 HTML 結構
 
-### 1. Google Fonts（HTML 最上方必含）
-```html
-<link href="https://fonts.googleapis.com" rel="preconnect"></link>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"></link>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"></link>
-```
+### 1. 字型：一律不得加入 Google Fonts
+**禁止**輸出任何指向 `fonts.googleapis.com` / `fonts.gstatic.com` 的 `<link>`，
+也不得使用 `@font-face` 或 `@import` 載入網頁字型。字型完全由下方 CSS 的
+`--font-body` / `--font-heading` 系統字型堆疊決定。
 
+規則來由（2026-08-26 實測）：本 skill 舊版固定輸出三行 Google Fonts 連結。
+由於那段 markup 會落在**文章內文**裡，等於每產出一篇文章就夾帶一次 ——
+245 篇抽樣中 34% 中鏢，推估全站約 503 / 1,466 篇。線上實測單篇文章因此拉下
+**38 個字型檔、1,982 KB，佔 3,593 KB 頁面的 55%**，其中幾乎全是 Noto Sans TC
+的 CJK 子集。Blogger 主題本身完全沒有網頁字型、早就用系統字型堆疊，
+這段連結是在跟主題打架。
+
+系統堆疊在各平台的中文渲染都沒問題：Windows 微軟正黑、macOS/iOS 蘋方、
+Android Noto Sans CJK。
 ### 2. 首圖（Optional）
 ```html
 <div class="separator" style="clear: both; text-align: center;">
@@ -119,7 +126,7 @@ metadata:
   ```
 
 ### 3. Blogger 閱讀更多標記
-在首圖之後（若無首圖則在字型連結之後）插入：
+在首圖之後（若無首圖則置於 HTML 最前）插入：
 ```html
 <!--more-->
 ```
@@ -440,8 +447,8 @@ HTML 末尾**必須保留完整 CSS**，不得刪除、縮寫或改寫原有規�
 ```css
 #app-2025-trd-paradigm-failure {
   /* --- Design Tokens --- */
-  --font-body: 'Noto Sans TC', 'Helvetica Neue', Arial, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  --font-heading: 'Montserrat', 'Helvetica Neue', Arial, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
   --color-surface: #ffffff;
   --color-title: #2c3e50;
   --color-text: #34495e;
@@ -679,10 +686,9 @@ HTML 末尾**必須保留完整 CSS**，不得刪除、縮寫或改寫原有規�
 
 最終 HTML 必須依序排列：
 
-1. Google Fonts
-2. 首圖（若無則略過）
-3. `<!--more-->`
-4. 根容器開始
+1. 首圖（若無則略過）
+2. `<!--more-->`
+3. 根容器開始
 5. 文章導言
 6. 文章目錄
 7. 文章主要內容
@@ -717,9 +723,11 @@ HTML 末尾**必須保留完整 CSS**，不得刪除、縮寫或改寫原有規�
 
 | 錯誤 | 修正 |
 |------|------|
-| 在回應開頭加「以下是轉換後的 HTML」 | 刪除前言，直接從 `<link>` 開始輸出 |
+| 在回應開頭加「以下是轉換後的 HTML」 | 刪除前言，直接從第一個 HTML 標籤開始輸出 |
 | 把 CSS `<style>` 放進 `.article-content` 內 | 移到根容器外、整份 HTML 最尾端 |
-| 忘記插 `<!--more-->` | 在首圖後（或字型連結後）補上 |
+| 忘記插 `<!--more-->` | 在首圖後（若無首圖則置於最前）補上 |
+| 加入 Google Fonts `<link>` | 一律刪除，改用系統字型堆疊 |
+| JSON-LD 內把中文標點寫成 `&#65292;` 這類實體 | 改回真實字元 `，、。？`；script 內的實體不會被解碼 |
 | 預約網址改成其他診所或縮短 | 固定使用 `https://lin.ee/mUIBMWa` |
 | 「延伸閱讀」自行填入文章標題 | 保持空白，僅留 `<p><strong>延伸閱讀：</strong></p>` |
 | FAQ 標題用「常見問題」 | 統一為 `<h2 id="faqs">常見問題 FAQ</h2>` |
