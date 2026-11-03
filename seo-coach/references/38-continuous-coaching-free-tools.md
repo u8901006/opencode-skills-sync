@@ -1,0 +1,202 @@
+# 38 — 陪跑續航規則 + 免費 SEO 工具地圖
+
+用途：避免新手做完一個檢查就以為 SEO 陪跑結束；同時提供按模組使用的免費工具，不在第一輪工具轟炸。
+
+Component rationale:
+- reason: Keep SEO Coach moving through the full coaching path while giving beginners practical, free tools at the moment they are useful.
+- strip_when: Remove or merge this file if session-flow and module references fully enforce continuation and free-tool routing without separate guidance.
+
+來源狀態：Ahrefs 免費工具清單依 https://ahrefs.com/free-seo-tools 於 **2026-08-01** 核對。工具名稱、限制與可用功能可能變動，實際使用前以官方頁面為準。（前次核對 2026-05-12；該次之後 Ahrefs 新增了 AI 可見度三工具、Keyword Rank Checker 與 Website Traffic Checker，「Ahrefs Webmaster Tools」也已改稱 **Ahrefs Free**。）
+
+---
+
+## 續航規則
+
+每輪都要讓用戶知道三件事：
+1. 這次完成的是哪一小塊
+2. 目前還在整個 SEO 陪跑流程的哪裡
+3. 下一步要看哪個模組
+
+不要使用會讓人誤解為結束的語氣：
+- 「這樣就差不多了」
+- 「SEO 基礎就先這樣」
+- 「有問題再回來」
+
+改用：
+> 這一步只是確認 Google 能不能找到網站。下一步我們要看 Google 是否真的收錄你的重要頁面。
+
+或：
+> 這個問題先標成需要工程協助。陪跑不會卡在這裡，下一步我們先看首頁 title 和主要服務頁，這是你現在能自己推進的部分。
+
+---
+
+## 18 模組覆蓋原則
+
+完整陪跑要盡量走過：
+- M1 Crawlability
+- M2 Indexing
+- M3 Technical SEO
+- M4 Page Speed
+- M5 CMS-Specific
+- M6 On-Page
+- M7 Content Quality
+- M8 E-E-A-T
+- M9 Topical Map
+- M10 Keyword Basics
+- M11 Internal Links
+- M12 Backlinks Basics
+- M13 SERP Features
+- M14 Image & Video SEO
+- M15 AI Search Readiness
+- M16 SEO Scenarios
+- M17 Negative SEO 防護
+- M18 SEO 成效衡量
+
+例外：
+- 用戶只要求快速問答：直接回答即可，可輕邀做一個網站檢查
+- 用戶明確只要輕量模式：仍給下一步預告，不建立完整進度檔
+- 問題進入高風險 / 顧問級 / 技術實作：標成需要協助，然後回到下一個可陪跑模組
+
+---
+
+## 全部模組完成後：維護循環
+
+不要說 SEO 已完成。改成進入維護循環：
+
+### 每月
+- GSC：曝光、點擊、排名 11-20 的查詢
+- 索引：重要頁面是否仍被收錄
+- PageSpeed / CWV：是否出現明顯惡化
+- 重要頁面：title / meta 是否需要更新
+
+### 每季
+- 內容：舊文是否過時、是否有新問題可補
+- 內鏈：重要頁面是否有足夠內部連結
+- 連結：是否有異常外鏈或壞連結
+- 主題：是否需要新增服務頁、分類頁、比較頁、FAQ 或案例頁
+
+---
+
+## 免費工具使用原則
+
+- 先用 Google 免費工具和網站肉眼檢查建立基礎
+- Ahrefs 免費工具在 M10 / M11 / M12 / M17 特別有用
+- 不要第一輪把所有工具列出來
+- 每次只指定 1 個工具 + 1 個操作
+- 免費工具數據只能做方向判斷，不是排名保證
+
+---
+
+## 免費工具地圖
+
+| 模組 | 免費工具 | 用途 | 什麼時候用 |
+|------|----------|------|------------|
+| M1 Crawlability | 瀏覽器、robots.txt、sitemap.xml | 看 Google 是否可能發現網站 | 第一輪技術檢查 |
+| M2 Indexing | Google `site:`、GSC URL Inspection | 看頁面是否被收錄 | 網站能打開後 |
+| M3 Technical SEO | Rich Results Test、瀏覽器鎖頭 | 看 HTTPS / schema 基礎 | 技術基礎 |
+| M4 Page Speed | PageSpeed Insights、Lighthouse | 看速度與 CWV 方向 | 不追 100 分，只抓明顯問題 |
+| M6 On-Page | Chrome 原始碼、Screaming Frog 免費版 | 檢查 title / H1 / meta | 頁面優化 |
+| M7 Content Quality | 手動 SERP、People Also Ask | 看搜尋意圖與競品回答方式 | 寫或改內容前 |
+| M10 Keyword Basics | GSC、Google Trends、Autocomplete、Ahrefs Free Keyword Generator、Ahrefs KD Checker、Ahrefs SERP Checker | 找長尾詞、估難度、看 SERP | 關鍵字規劃 |
+| M11 Internal Links | Screaming Frog 免費版、Ahrefs Free | 找孤兒頁、內鏈機會 | 內鏈模組 |
+| M12 Backlinks | GSC Links、Ahrefs Free Backlink Checker、Ahrefs Free | 看外部連結概況 | 外鏈基礎 |
+| M13 AI Search | AI Visibility Checker、AI Overviews Tracker、AI Mode Tracker、手動無痕提問 | 看品牌在 AI 答案裡被不被提到 | 用戶問「AI 找不找得到我」時 |
+| M17 Negative SEO | GSC Links、Ahrefs Free Backlink Checker | 看異常外鏈 | 有異常跡象時 |
+| M18 Measurement | GSC、GA4、Ahrefs Keyword Rank Checker、Ahrefs Free Web Analytics | 看 SEO 成效與排名變化 | G6 回看、每月維護 |
+
+---
+
+## Ahrefs 免費工具用法
+
+官方免費工具入口：https://ahrefs.com/free-seo-tools
+
+| 工具 | 看什麼 | 對應教學時機 |
+|---|---|---|
+| Free Keyword Generator | 擴展長尾候選 | G3 候選查詢（學員已能自己讀 SERP 之後） |
+| Keyword Difficulty Checker | 粗估難度方向 | G3 排序時當驗證層 |
+| SERP Checker | 任一國家前 10 名概況 | 學員手動判讀完再對答案 |
+| **Keyword Rank Checker** | 自己的站在指定國家的排名位置 | **G6 回看**，與 GSC 平均排名對照 |
+| **Website Traffic Checker** | 任一網站／頁面的流量估算 | 公開競品觀察，判斷對手規模 |
+| Backlink Checker | 任一網站前 20 個外鏈 | M12 外鏈基礎 |
+| Broken Link Checker | 壞連結 | M11 / M17 |
+| Website Authority Checker | 網域 DR | 只當第三方相對參考 |
+| **AI Visibility Checker** | 品牌在 ChatGPT／Gemini／Perplexity 等平台被提及的頻率 | `13-ai-search.md` |
+| **AI Overviews Tracker** | AI Overviews 的引用與波動 | `13-ai-search.md` |
+| **AI Mode Tracker** | Google AI Mode 的提及與引用 | `13-ai-search.md` |
+| XML Sitemap Generator | 從實際爬取產生 sitemap | M2 索引 |
+| Ahrefs SEO Toolbar | 頁面 on-page 報告、轉址追蹤、切換國家看 SERP | 進階學員 |
+| **Ahrefs Free**（原 Ahrefs Webmaster Tools） | 驗證自有網站後看關鍵字、外鏈與技術概況 | 學員自己的站 |
+
+粗體是 2026-08-01 這次核對才補進來的。所有數字（KD、DR、流量估算、AI 提及次數）都是 Ahrefs 自己的模型輸出，照 `52-public-source-policy.md` 一律標**第三方估值**，不得說成 Google 或各 AI 平台的內部資料。
+
+### M10 關鍵字規劃
+
+新手流程一次只做一步：
+1. 先從一個顧客問題或 GSC 查詢取得 1 個候選詞；沒有 GSC 時才用 Google Autocomplete 找措辭線索
+2. 開新的無痕／私密視窗搜尋同一個詞，記錄地區、語言、裝置與日期
+3. 教練示範第 1 個自然結果；下一輪共做第 2 個，再由學員判讀第 3 個
+4. 只有三筆訊號混合時才加看 2 筆；KD 或免費 SERP 工具只作補充，不是判決
+5. 回到 GSC 與現有頁確認：這是值得測的候選、新建頁、改善既有頁，還是暫不處理
+
+教練提醒：
+> KD 只是方向，不是判決。新手先找「意圖明確、競爭較低、能做出好頁面」的詞。
+
+### M12 外鏈基礎
+
+新手流程：
+1. 先看 GSC 外部連結
+2. 再用 Ahrefs Free Backlink Checker 看公開外鏈概況
+3. 只判斷：有沒有正常品牌連結、有沒有明顯垃圾連結、有沒有競品常見的基礎引用來源
+
+不要直接進入外鏈計畫。外鏈策略屬進階範圍。
+
+### M11 / M17 技術與連結健康
+
+可用：
+- Broken Link Checker：找壞連結
+- Ahrefs Free（原名 Ahrefs Webmaster Tools）：已驗證網站可用 Site Audit / Site Explorer 類功能，適合看自己網站的技術和連結概況
+
+限制提醒：
+> 不用付費工具也能手動完成小範圍 SERP、候選內容缺口與新建／改善判斷；完整市場盤點、大規模競品資料或外鏈策略才可能需要專業工具或顧問。教學流程見 `55-search-opportunity-lab.md`。
+
+---
+
+## Firecrawl 免費 keyless SERP（陽春版 Ahrefs）
+
+沒預算又想知道「誰在跟我搶這個關鍵字」時，Firecrawl 把搜尋服務 ＋ 網頁轉 Markdown 都用**免註冊 keyless** 開出來，免費額度 1,000 credits，做前期自動化 SERP 競品搜尋很夠。對新手最有用的用法不是拿來裝爬蟲工程師，而是當「超陽春版 Ahrefs 的 Google SERP」：
+
+1. 打搜尋端口 `api.firecrawl.dev/v2/search`，丟目標關鍵字，拿一批搜尋結果。
+2. 打爬頁端口 `api.firecrawl.dev/v2/scrape`，把前幾個對手 URL 清成 markdown。
+3. 貼給 AI，叫它拆標題、段落、內容缺口、FAQ、內鏈機會。
+
+限制要講清楚：它不能取代專業 Google SERP 爬蟲——結果不能客製化地區、綜合多個搜尋引擎，SERP 的國家／地區／語言／個人化都會有差。但新手先知道誰在跟你搶題目已經夠用。（工具狀態 as-of 2026-07，以官方頁面為準）
+
+---
+
+## 收尾模板
+
+### 輕量模式
+
+```markdown
+這一步我們只確認了：[完成的檢查]
+下一步會看：[下一個模組]
+你現在先做：[1 個最小行動]
+做完回來貼結果，我會接著帶你往下一塊走。
+```
+
+### 完整陪跑
+
+```markdown
+今天完成：[Module X]
+待做功課：[1 個任務]
+下次從：[Module Y] 開始
+整體進度：[Tier / Module 狀態]
+```
+
+### 太難需要轉介
+
+```markdown
+這個點已經超出基礎陪跑，先標成「需要協助」。
+你可以交辦給工程師 / SEO 顧問的句子是：[一句話]
+陪跑不會卡在這裡；下一步我們先看：[下一個可自己做的模組]
+```

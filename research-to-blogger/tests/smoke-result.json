@@ -1,0 +1,71 @@
+{
+  "project": "C:\\Users\\u8901006\\AppData\\Local\\Temp\\opencode\\research-to-blogger-smoke-bup5r6_p",
+  "build": {
+    "references": 2,
+    "fulltext_articles": 2,
+    "cards": 3,
+    "structural_validation": "passed",
+    "scientific_validation": "requires human source review",
+    "browser_validation": "not performed by this command",
+    "summary_only_articles": 0,
+    "source_sha256": {
+      "project.json": "a87ed9ced29f3987c945f63b623a5044e6a3a065f4678183f7afa073e8e5fbd7",
+      "papers.json": "0c3fdb9c5219b00f5d298dd09919138549a3808ecaa8e58c990174c3e82e290a",
+      "cards.json": "044fdf47253e835d90053e2b32a7244a6f932e0c50dfec8f3e46c7e059d7e386",
+      "article.html": "91350801ddfaf57034122f20e3dcf285d978751b7d310b22f9cc50fef32c40af"
+    }
+  },
+  "check": {
+    "status": "passed",
+    "references": 2,
+    "fulltext_articles": 2,
+    "cards": 3
+  },
+  "browser": {
+    "results": [
+      {
+        "width": 1120,
+        "scrollWidth": 1120,
+        "columns": 3,
+        "cards": 3,
+        "references": 2,
+        "overflow": [],
+        "citation_navigation": true,
+        "pass": true
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "columns": 3,
+        "cards": 3,
+        "references": 2,
+        "overflow": [],
+        "citation_navigation": true,
+        "pass": true
+      },
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "columns": 1,
+        "cards": 3,
+        "references": 2,
+        "overflow": [],
+        "citation_navigation": true,
+        "pass": true
+      },
+      {
+        "width": 360,
+        "scrollWidth": 360,
+        "columns": 1,
+        "cards": 3,
+        "references": 2,
+        "overflow": [],
+        "citation_navigation": true,
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "all_pass": true,
+    "scope": "Local Chromium preview only; no live Blogger theme or publication tested."
+  }
+}

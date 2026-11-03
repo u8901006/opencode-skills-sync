@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="SEO Coach GSC panel" data-i18n-content="meta.description" />
+    <title>GSC Panel · SEO Coach</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#view" data-i18n="skip.main">Skip to main content</a>
+
+    <header class="console">
+      <div class="hud">
+        <a class="brand" href="#overview">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span>
+            <span class="brand-name">GSC PANEL</span>
+            <span class="brand-sub" data-i18n="brand.sub">SEO COACH</span>
+          </span>
+        </a>
+
+        <div id="controls" class="controls" hidden>
+          <label class="slot"><span data-i18n="top.site">Property</span><select id="siteSelect" class="input"></select></label>
+          <label class="slot"><span data-i18n="top.range">Period</span><select id="rangeSelect" class="input"></select></label>
+          <label class="slot"><span data-i18n="top.compare">Compare</span><select id="compareSelect" class="input"></select></label>
+          <button id="filterToggle" class="btn btn-ghost" type="button" aria-expanded="false" aria-controls="filterPanel"></button>
+          <button id="refreshButton" class="btn btn-ghost" type="button" data-i18n="top.refresh">Refresh</button>
+        </div>
+
+        <div class="hud-end">
+          <span id="connectionStatus" class="pill is-checking" role="status"></span>
+          <details class="menu">
+            <summary data-i18n="settings.menu">Settings</summary>
+            <div class="menu-body">
+              <label class="slot"><span data-i18n="settings.language">Language</span><select id="localeSelect" class="input"></select></label>
+              <label class="slot"><span data-i18n="settings.theme">Theme</span>
+                <select id="themeSelect" class="input">
+                  <option value="auto" data-i18n="theme.auto">Auto</option>
+                  <option value="light" data-i18n="theme.light">Light</option>
+                  <option value="dark" data-i18n="theme.dark">Dark</option>
+                </select>
+              </label>
+              <button id="exportStateButton" class="btn btn-ghost" type="button" data-i18n="settings.export">Export my notes and settings</button>
+              <label class="btn btn-ghost"><span data-i18n="settings.import">Import</span><input id="importStateInput" class="visually-hidden" type="file" accept=".json,application/json" /></label>
+              <button id="clearDataButton" class="btn btn-ghost" type="button" data-i18n="settings.clear">Clear local data</button>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <nav class="menubar" aria-label="Panel" data-i18n-aria="nav.navigation">
+        <div id="nav" class="tabs"></div>
+        <div id="subnav" class="subtabs"></div>
+      </nav>
+    </header>
+
+    <div class="stage">
+      <div id="demoBanner" class="banner" hidden>
+        <span data-i18n="demo.banner">Demo data — every number here is synthetic.</span>
+        <button id="demoExit" class="btn btn-ghost" type="button" data-i18n="demo.exit">Exit demo</button>
+      </div>
+
+      <div class="titlebar">
+        <h1 id="viewTitle"></h1>
+        <span id="periodLabel" class="period"></span>
+        <span id="filterSummary" class="filter-summary" hidden></span>
+        <button id="evidenceButton" class="btn btn-ghost evidence-button" type="button" hidden data-i18n="evidence.copy">Copy evidence card</button>
+      </div>
+
+      <section id="filterPanel" class="card filter-panel" hidden aria-label="Filter" data-i18n-aria="filter.button">
+        <div id="filterFields" class="form-grid"></div>
+        <div class="toolbar">
+          <button id="filterApply" class="btn" type="button" data-i18n="filter.apply">Apply</button>
+          <button id="filterClear" class="btn btn-ghost" type="button" data-i18n="filter.clear">Clear</button>
+          <span class="toolbar-fill"></span>
+          <input id="segmentName" class="input" maxlength="40" placeholder="Segment name" data-i18n-placeholder="segments.name" data-i18n-aria="segments.name" />
+          <button id="filterSave" class="btn btn-ghost" type="button" data-i18n="filter.saveSegment">Save as segment</button>
+        </div>
+      </section>
+
+      <main id="view" class="view" tabindex="-1"></main>
+
+      <footer class="footer"><span>GSC PANEL · SEO COACH</span><span data-i18n="footer.note">Read live through your connector · nothing but your own notes is stored</span></footer>
+    </div>
+    <dialog id="detail" class="detail"><div id="detailBody" class="detail-body"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="panel-config.js"></script>
+    <script src="engine.js"></script>
+    <script src="locales/zh-Hant.js"></script>
+    <script src="locales/zh-Hans.js"></script>
+    <script src="locales/en.js"></script>
+    <script src="demo.js"></script>
+    <script src="local.js"></script>
+    <script src="core.js"></script>
+    <script src="views.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Coach"
+  short_description: "從零循序完成真站 SEO 閉環、手動 SERP 與寫作作品"
+  default_prompt: "Use $seo-coach to guide me one small verified step at a time, including a free manual incognito SERP path when I lack paid tools."

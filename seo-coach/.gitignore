@@ -1,0 +1,19 @@
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+__pycache__/
+*.pyc
+.env
+.env.local
+
+# eval run artifacts
+evals/runs/
+
+# credentials — never commit keys
+*service-account*.json
+*service_account*.json
+*credentials*.json
+*.pem
+*.key
+.seo-coach/

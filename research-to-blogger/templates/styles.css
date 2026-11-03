@@ -1,0 +1,42 @@
+.at-blog{box-sizing:border-box;max-width:1120px;margin:0 auto;padding:18px;background:#eff5f9;color:#18354e;font:17px/1.85 "Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;overflow-wrap:break-word;text-align:left}
+.at-blog *{box-sizing:border-box}
+.at-blog .at-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;background:linear-gradient(120deg,#103452,#092840);color:#fff;border-radius:20px;padding:30px;margin-bottom:16px}
+.at-blog .at-kicker{font-size:17px;color:#fff;margin:0 0 14px;font-weight:700}
+.at-blog .at-save{background:#ffc52e;color:#15314b;border-radius:7px;padding:4px 13px;margin-right:10px;font-weight:900;display:inline-block}
+.at-blog h2.at-title{font-size:clamp(30px,4.8vw,56px);font-weight:900;letter-spacing:-.03em;line-height:1.2;color:#fff;border:0;padding:0;margin:0 0 14px}
+.at-blog .at-subtitle{font-size:clamp(18px,2.2vw,26px);font-weight:700;color:#fff;line-height:1.5;margin:0}
+.at-blog .at-date{font-size:13px;color:#d6e5ef;margin:13px 0 0}
+.at-blog .at-legend{display:flex;flex-direction:column;justify-content:center;gap:7px;font-size:14px;color:#fff;min-width:145px}
+.at-blog .at-legend span{display:flex;gap:9px;align-items:center}
+.at-blog .at-swatch{display:inline-block;width:18px;height:18px;border:1px solid #fff;border-radius:5px;flex-shrink:0}
+.at-blog .at-green{background:#08746f}.at-blog .at-purple{background:#74408b}.at-blog .at-slate{background:#52677f}.at-blog .at-pink{background:#a32759}
+.at-blog .at-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.at-blog .at-card{background:#fff;border:1px solid #d8e3ed;border-radius:17px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.at-blog .at-card-head{display:flex;align-items:center;gap:10px;padding:14px 12px;min-height:85px;color:#fff}
+.at-blog .at-num{display:grid;place-items:center;width:39px;height:39px;border-radius:50%;background:#fff;color:#18354e;font-size:22px;line-height:1;font-weight:900;flex-shrink:0}
+.at-blog h3.at-card-title{font-size:22px;line-height:1.35;font-weight:800;color:#fff;margin:0;padding:0;border:0}
+.at-blog .at-category{display:block;font-size:12px;line-height:1.6;font-weight:500;color:#fff;margin-top:4px}
+.at-blog .at-card-body{padding:14px 17px;display:flex;flex-direction:column;flex:1}
+.at-blog .at-study{font-size:14px;color:#536477;line-height:1.6;border-bottom:1px dashed #d8e3ed;padding-bottom:10px;margin-bottom:10px}
+.at-blog .at-takeaway{font-size:19px;line-height:1.5;font-weight:800;margin:0 0 7px;color:#18354e}
+.at-blog .at-desc{font-size:15px;line-height:1.7;margin:0 0 13px;color:#536477}
+.at-blog .at-card-refs{font-size:12px;margin-top:auto;color:#536477}
+.at-blog a{color:#075a9c;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.at-blog a:focus-visible{outline:3px solid #d79700;outline-offset:3px}
+.at-blog .at-info{padding:17px 20px;border-radius:15px;background:#fff;border:1px solid #d8e3ed;font-size:15px;color:#344e64;margin-bottom:18px}
+.at-blog .at-copy,.at-blog .at-references{padding:28px 30px;border:1px solid #dce7ef;border-radius:18px;background:#fff;margin:17px 0}
+.at-blog .at-copy h2,.at-blog .at-references h2{font-size:26px;line-height:1.5;font-weight:900;color:#103452;border:0;border-bottom:2px solid #e5edf3;margin:38px 0 18px;padding:0 0 10px;scroll-margin-top:20px}
+.at-blog .at-copy h2:first-child,.at-blog .at-references h2:first-child{margin-top:0}
+.at-blog .at-copy h3{font-size:20px;line-height:1.6;font-weight:800;color:#11645e;margin:25px 0 10px;padding:0;border:0}
+.at-blog .at-copy p,.at-blog .at-copy li{font-size:17px;color:#24394e;line-height:1.95;margin:0 0 16px}
+.at-blog .at-copy ul,.at-blog .at-copy ol{padding-left:25px;margin:16px 0}
+.at-blog .at-copy blockquote{margin:20px 0;padding:15px 20px;border-left:4px solid #08746f;background:#edf6f4;color:#304b4c}
+.at-blog .at-ref-list{list-style:none;margin:0;padding:0}
+.at-blog .at-ref{padding:18px 0;border-bottom:1px solid #e2eaf1;scroll-margin-top:20px}
+.at-blog .at-ref:last-child{border-bottom:0}
+.at-blog .at-ref-id{font-size:12px;font-weight:800;display:inline-block;background:#eaf0f5;padding:3px 8px;border-radius:5px;color:#254763}
+.at-blog .at-ref-title{font-size:15px;font-weight:700;line-height:1.7;margin:8px 0;color:#1d354c;overflow-wrap:anywhere}
+.at-blog .at-ref-meta{font-size:13px;color:#566b7d;line-height:1.8;margin:5px 0;overflow-wrap:anywhere}
+.at-blog .at-end{font-size:13px;line-height:1.8;color:#546c7e;text-align:center;padding:15px}
+@media(max-width:800px){.at-blog .at-hero{grid-template-columns:1fr}.at-blog .at-legend{flex-direction:row;flex-wrap:wrap;gap:7px 17px;font-size:12px}.at-blog h3.at-card-title{font-size:19px}.at-blog .at-num{width:32px;height:32px;font-size:19px}.at-blog .at-card-head{padding:12px 10px;gap:8px}.at-blog .at-card-body{padding:12px}.at-blog .at-takeaway{font-size:17px}}
+@media(max-width:620px){.at-blog{padding:10px}.at-blog .at-hero{padding:23px 19px;border-radius:16px}.at-blog h2.at-title{font-size:35px}.at-blog .at-kicker{font-size:14px}.at-blog .at-grid{grid-template-columns:1fr}.at-blog .at-card-head{padding:13px 16px;min-height:70px}.at-blog .at-num{width:38px;height:38px;font-size:22px}.at-blog h3.at-card-title{font-size:23px}.at-blog .at-card-body{padding:15px 20px}.at-blog .at-takeaway{font-size:20px}.at-blog .at-desc{font-size:16px}.at-blog .at-copy,.at-blog .at-references{padding:22px 18px}.at-blog .at-copy h2,.at-blog .at-references h2{font-size:24px}.at-blog .at-copy p,.at-blog .at-copy li{font-size:16px}}
